@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block contact %}
+<table class="table container">
+    {% for messages in messages %}
+     <p class="alert alert-danger">{{messages}}</p>
+{% endfor %}
+    <thead>
+        
+        <a href="{% url 'add' %}">Add record</a>
+      <tr>
+        <h3 class="mt-5 container">Student Details </h3>
+        <hr>
+        <th scope="col">sid</th>
+        <th scope="col">Sname</th>
+        <th scope="col">Scontact</th>
+       
+
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for s in s  %}
+      
+      <tr>
+        
+        <td>{{s.sid}}</td>
+        <td>{{s.sname}}</td>
+        <td>{{s.scontact}}</td>
+        <td> <a href="update/{{s.id}}">Edit</a></td>
+        <td class=""> <a href="delete/{{s.id}}">Delete</a></td>
+        
+        
+      </tr>
+          
+      {% endfor %}
+     
+    </tbody>
+  </table>
+  
+{% endblock contact %}

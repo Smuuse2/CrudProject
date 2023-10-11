@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block contact %}
+<form action="/update/{{student.id}}"  class="container" method="post">
+  {% csrf_token %}
+  <h3 class="mt-5">Add New</h3>
+  <hr>
+  <div class="form-group">
+    <label for="exampleInputEmail1">ID</label>
+    <input type="text" value="{{student.sid}}" class="form-control" id="sid" name="sid" aria-describedby="emailHelp" placeholder="Enter email">
+   
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input type="text" value="{{student.sname}}" class="form-control mt-1" id="" name="sname" placeholder="Enter Name">
+  </div>
+
+  <div class="form-group">
+      <label for="exampleInputPassword1">Contact</label>
+      <input type="text" value="{{student.scontact}}" class="form-control mt-1" id="scontact" name="scontact" placeholder="Enter Contact">
+    </div>
+ 
+  <button type="submit" class="btn mt-3 btn-primary">Submit</button>
+  <a class="btn  btn-info mt-3" href="{% url 'show' %}">show info</a>
+</form>
+
+  
+{% endblock contact %}
